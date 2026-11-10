@@ -1,0 +1,39 @@
+{
+  "name": "opencode-selective-revert",
+  "version": "0.1.0",
+  "description": "Selective, per-message file revert for OpenCode.",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./tui": "./tui.ts",
+    "./rpc": "./rpc.ts"
+  },
+  "files": [
+    "index.ts",
+    "tui.ts",
+    "rpc.ts",
+    "i18n.ts",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "revert",
+    "undo",
+    "git"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botaothomaszhao/opencode-selective-revert.git"
+  },
+  "homepage": "https://github.com/botaothomaszhao/opencode-selective-revert#readme",
+  "bugs": {
+    "url": "https://github.com/botaothomaszhao/opencode-selective-revert/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@opencode/plugin": "^2.2.7"
+  }
+}
