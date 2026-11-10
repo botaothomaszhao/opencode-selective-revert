@@ -11,6 +11,7 @@
 - OpenCode v2（已在 2.2.7 测试）
 - Git
 - 会话目录位于 Git worktree 内才能回滚文件；否则只能回滚对话
+- Linux 需要 `wl-clipboard` 提供的 `wl-copy`（`apt install wl-clipboard` / `pacman -S wl-clipboard`）。确认后要把消息复制到剪贴板，缺少该命令时回滚会被取消
 
 ## 安装
 
@@ -71,7 +72,7 @@ Windows 的全局插件目录是 `%USERPROFILE%\.config\opencode\plugins`。
 - 同一 turn 内被 steer 的消息，diff 可能从该 turn 开头算起。
 - 消息列表来自最近一次 compaction 之后的会话上下文；更早的消息选不到。
 - 插件 API 不能把旧消息文本放回输入框；确认框会显示消息，确认后复制到剪贴板。复制失败时会取消回滚并显示消息，避免丢失。
-- 剪贴板是 OpenCode 服务所在机器的；连接远程服务器时复制的是远端剪贴板。
+- 剪贴板是 OpenCode 服务所在机器的；连接远程服务器时复制的是远端剪贴板。Linux 上复制依赖 Wayland 会话，X11 或无显示环境会失败，此时从确认框手动复制消息再重跑命令。
 - 需要会话目录位于 Git worktree 内；非 Git 目录只能回滚对话，确认框会明确提示。二进制文件、超大文件、被截断的 patch 会被拒绝。
 
 ## 开发

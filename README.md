@@ -11,6 +11,7 @@ The built-in `/undo` restores whole files to their state before the session. Whe
 - OpenCode v2 (tested with 2.2.7)
 - Git
 - The session directory must be inside a Git worktree for file revert; conversation-only revert works elsewhere
+- On Linux, `wl-copy` from `wl-clipboard` (`apt install wl-clipboard` / `pacman -S wl-clipboard`). The message is copied to the clipboard on confirm; without it the revert is cancelled
 
 ## Install
 
@@ -71,7 +72,7 @@ The command is also available in the command palette as "Selective session rever
 - Steered messages in the same turn may produce a diff that starts at the beginning of that turn.
 - The message list comes from the session context after the latest compaction; earlier messages cannot be selected.
 - The plugin API cannot put old message text back into the prompt. The confirmation dialog shows the message and copies it to the clipboard. If copying fails, the revert is cancelled and the message is shown instead.
-- Clipboard access uses the machine that runs the OpenCode server. With a remote server, the remote clipboard is used.
+- Clipboard access uses the machine that runs the OpenCode server. With a remote server, the remote clipboard is used. On Linux the copy needs a Wayland session; on X11 or a headless host it fails, so copy the message from the confirmation dialog and run the command again.
 - The session directory must be inside a Git worktree. Outside Git, only the conversation can be reverted, and the confirmation dialog says so. Binary files, oversized files, and truncated patches are rejected.
 
 ## Development
